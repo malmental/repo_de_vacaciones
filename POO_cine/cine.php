@@ -13,11 +13,16 @@ class cine
         $this->peliculas = $peliculas;
     }
 
+    public function getPeliculas(): array
+    {
+        return $this->peliculas;
+    }
+
     public function mostrarPelisCine(): void
     {
-        echo "Cine: {$this->nombre} _ {$this->poblacion}";
+        echo "Cine: {$this->nombre} _ {$this->poblacion}" . PHP_EOL;
         foreach ($this->peliculas as $pelicula) {
-            echo "- " . $pelicula->mostrarDatosPeli;
+            echo "- " . $pelicula->mostrarDatosPeli();
         }
     }
 
@@ -31,6 +36,19 @@ class cine
         }
         return $peliMasLarga;
     }
+    /*
+    Metodo auxiliar para buscar peliculas por director en ESTE cine
+    public function buscarPorDirector (string $directorBuscar): array
+    {
+        $peliculasEncontradas = [];
+
+        foreach ($this->peliculas as $pelicula) {
+            if ($pelicula->getDirector() === $directorBuscar) {
+                $peliculasEncontradas[] = $pelicula;
+            }
+        }
+        return $peliculasEncontradas;
+    } */
 }
 
 ?>

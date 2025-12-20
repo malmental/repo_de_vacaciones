@@ -25,7 +25,7 @@ class pelicula
 
     public function mostrarDatosPeli(): string
     {
-        return "_Peli: {$this->nombre} _ {$this->duracion} _ {$this->director}";
+        return "Peli: {$this->nombre} por {$this->director} y dura: {$this->duracion} minutos" . PHP_EOL;
     }
 }
 
