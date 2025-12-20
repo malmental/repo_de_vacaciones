@@ -36,6 +36,7 @@ class cine
         }
         return $peliMasLarga;
     }
+
     /*
     Metodo auxiliar para buscar peliculas por director en ESTE cine
     public function buscarPorDirector (string $directorBuscar): array
@@ -49,6 +50,7 @@ class cine
         }
         return $peliculasEncontradas;
     } */
+   
 }
 
 ?>
