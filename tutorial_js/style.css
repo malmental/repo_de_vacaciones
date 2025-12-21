@@ -7,4 +7,11 @@
 body {
     font-family: 'JetBrains Mono', sans-serif;
     background-color:beige;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
 }
