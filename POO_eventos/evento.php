@@ -2,26 +2,20 @@
 
 class Evento
 {
-    protected string $nombre;
-    protected string $fecha;
-    protected string $hora;
-    protected string $lugar;
-    protected string $descripcion;
+    public string $nombre;
+    public string $fecha;
+    public string $hora;
+    public string $lugar;
+    public string $descripcion;
+    public string $organizador;
+    
 
-    public function __construct(string $nombre, string $fecha, string $hora, string $lugar, string $descripcion)
+    public function __construct(string $nombre, string $fecha, string $hora, string $lugar, string $descripcion, string $organizador)
     {
         $this->nombre = $nombre;
         $this->fecha = $fecha;
         $this->hora = $hora;
         $this->lugar = $descripcion;
+        $this->organizador = $organizador;
     }
-
-    public function mostrarDatosEvento(): string
-    {
-        return "EVENTO: {$this->nombre} - 
-        FECHA: {$this->fecha} - 
-        HORA: {$this->hora} - 
-        LUGAR: {$this->lugar} - 
-        DESCRIPCION: {$this->descripcion}";
-    }
-}
+}  
