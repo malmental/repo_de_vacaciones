@@ -7,15 +7,21 @@ class Evento
     public string $hora;
     public string $lugar;
     public string $descripcion;
-    public string $organizador;
+    public Empresa $organizador;
     
 
-    public function __construct(string $nombre, string $fecha, string $hora, string $lugar, string $descripcion, string $organizador)
+    public function __construct(string $nombre, string $fecha, string $hora, string $lugar, string $descripcion, Empresa $organizador)
     {
         $this->nombre = $nombre;
         $this->fecha = $fecha;
         $this->hora = $hora;
-        $this->lugar = $descripcion;
+        $this->lugar = $lugar;
+        $this->descripcion = $descripcion;
         $this->organizador = $organizador;
+    }
+
+    public function __toString(): string
+    {
+        return "Nombre: $this->nombre, Fecha: $this->fecha, Hora: $this->hora, Lugar: $this->lugar, Descripcion: $this->descripcion, Organizador: $this->organizador->nombre";
     }
 }  
