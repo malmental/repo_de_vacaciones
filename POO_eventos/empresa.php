@@ -15,5 +15,3 @@ class Empresa
 
     public function getDireccion(){return $this->direccion;}
 }
-
-?>
