@@ -55,3 +55,5 @@ class Evento
         return "Nombre: $this->nombre, Fecha: $this->fecha, Hora: $this->hora, Lugar: $this->lugar, Descripcion: $this->descripcion, Organizador: $this->organizador->nombre";
     }
 }  
+
+?>

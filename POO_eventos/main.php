@@ -16,16 +16,16 @@ $evento1 = new Evento(
     "24 de Diciembre",
     "19:00",
     "Sala Principal",                       
-    "Evento familiar",
+    "Gastronomia",
     $empresa1
 );
 
 $evento2 = new Evento(
-    "Conferencia de Video juegos 2025",
+    "Encuentro de Video juegos 2025",
     "1 de Enero",
     "09:00",
     "Centro de Convenciones Barcelona",
-    "Conferencia sobre las últimas tendencias en desarrollo web y aplicaciones móviles",
+    "Conferencia",
     $empresa2
 );
 
@@ -34,7 +34,7 @@ $evento3 = new Evento(
     "1 de Febrero",
     "21:30",
     "Auditorio Municipal",
-    "Noche de jazz en vivo con artistas locales e internacionales",
+    "Música en vivo",
     $empresa1
 );
 
