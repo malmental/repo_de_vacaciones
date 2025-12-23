@@ -1,3 +1,8 @@
+<?php
+require_once 'empresa.php';
+require_once 'evento.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,66 +17,40 @@
         <h1>Gestor de enventos</h1>
 
         <!--FORMULARIO DE CREACION DE EVENTOS-->
-        <form method="post" action="">
-                <div>
+        <form method="post" action="informacion_evento.php">
+
+                <div class="campo">
                     <label for="nombre">Nombre del evento:</label>
                     <input type="text" name="nombre" id="nombre" required>
                 </div>
-
-                <div>
+                
+                <div class="campo">
                     <label for="fecha">Fecha: </label>
-                    <input type="text" name="fecha" id="fecha">
+                    <input type="text" name="fecha" id="fecha" required>
                 </div>
 
-                <div>
+                <div class="campo">
                     <label for="hora">Hora:</label>
-                    <input type="text" name="hora" id="hora">
+                    <input type="text" name="hora" id="hora" required>
                 </div>
 
-                <div>
+                <div class="campo">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" name="lugar" id="lugar">
+                    <input type="text" name="lugar" id="lugar" required>
                 </div>
 
-                <div>
+                <div class="campo">
                     <label for="descripcion">Descripcion:</label>
-                    <input type="text" name="descripcion" id="descripcion">
+                    <textarea name="descripcion" id="descripcion" rows="3" required></textarea>
                 </div>
-                <div>
+
+                <div class="campo">
                     <label for="organizador">Organizador:</label>
-                    <input type="text" name="empresa_nombre" value="BCN Eventos">
+                    <input type="text" name="empresa_nombre" required>
                 </div>
+
             <button>Enviar</button>
         </form>
-
-        <!--RESULTADOS MOSTRADOS-->
-        <?php
-        if (isset($_POST['nombre'])): ?>
-            <?php
-            $nombre = $_POST['nombre'];
-            $fecha = $_POST['fecha'];
-            $hora = $_POST['hora'];
-            $lugar = $_POST['lugar'];
-            $descripcion = ['descripcion'];
-            $empresa_nombre = ['empresa_nombre'];
-        
-            // Creamos los objetos
-            $empresa1 = new Empresa("Event Land", "Av. Litoral 84");
-            $evento = new Evento($nombre, $fecha, $hora, $lugar, $descripcion, $empresa1);
-            
-            // Mostramos resultado
-            ?>
-            <div class="resultado">
-                <strong>✅ Evento creado correctamente:</strong>
-                <p><?= $evento ?></p>
-            </div>
-        <?php endif; ?>
-
-
-
-
-
-
     </div>
 </body>
 </html>

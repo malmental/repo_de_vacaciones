@@ -2,7 +2,7 @@
 
 class SistemaDeEventosFestival
 {
-    public array $eventos = [];
+    protected array $eventos = [];
 
     public function __construct(array $eventos = [])
     {

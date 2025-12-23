@@ -20,40 +20,30 @@ class Evento
         $this->organizador = $organizador;
     }
 
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
+    public function getNombre(): string{return $this->nombre;}
 
-    public function getFecha()
-    {
-        return $this->fecha;
-    }
+    public function getFecha(): string{return $this->fecha;}
 
-    public function getHora()
-    {
-        return $this->hora;
-    }
+    public function getHora(): string{return $this->hora;}
 
-    public function getLugar()
-    {
-        return $this->lugar;
-    }
+    public function getLugar(): string{return $this->lugar;}
 
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
+    public function getDescripcion(): string{return $this->descripcion;}
 
-    public function getOrganizador()
-    {
-        return $this->organizador;
-    }
+    public function getOrganizador(): Empresa{return $this->organizador;}
 
-    public function __toString(): string
-    {
-        return "Nombre: $this->nombre, Fecha: $this->fecha, Hora: $this->hora, Lugar: $this->lugar, Descripcion: $this->descripcion, Organizador: $this->organizador->nombre";
+    public function __toString() {
+        return [
+             "=== EVENTO ===",
+            "Nombre: $this->nombre",
+            "Fecha: $this->fecha",
+            "Hora: $this->hora",
+            "Lugar: $this->lugar",
+            "Organizador: " . $this->organizador->getNombre(),
+            "---------------"
+        ];
     }
 }  
 
 ?>
+

@@ -1,20 +1,19 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family:'JetBrains Mono', Courier, monospace;
-    background-color:cornsilk;
+    font-family: monospace, Courier ;
+    background-color:hotpink
 }
 
-.container {  /* ← Faltaba el punto aquí */
-    max-width: 800px;
+.container { 
+    max-width: 400px;
     margin: 20px auto;
     background: white;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 form {
@@ -23,8 +22,7 @@ form {
     gap: 15px;
 }
 
-label {
+.campo {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 50px;
 }

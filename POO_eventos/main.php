@@ -41,8 +41,10 @@ $evento3 = new Evento(
 
 
 $festival1->registrarEvento($evento1);
+echo "=== FESTIVAL 1" . PHP_EOL;
 $festival1->mostrarDatosEvento();
 
 $festival2->registrarEvento($evento2);
 $festival2->registrarEvento($evento3);
+echo "=== FESTIVAL 2" . PHP_EOL;
 $festival2->mostrarDatosEvento();
