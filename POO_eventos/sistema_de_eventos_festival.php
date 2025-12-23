@@ -17,12 +17,12 @@ class SistemaDeEventosFestival
     public function mostrarDatosEvento()
     {
         foreach($this->eventos as $evento) {
-            echo "Nombre: " . $evento->nombre . PHP_EOL;
-            echo "Fecha: " . $evento->fecha . PHP_EOL;
-            echo "Hora: " . $evento->hora . PHP_EOL;
-            echo "Lugar: " . $evento->lugar . PHP_EOL;
-            echo "Descripcion: " . $evento->descripcion . PHP_EOL;
-            echo "Organizador: ". $evento->organizador->nombre . PHP_EOL;
+            echo "Nombre: " . $evento->getNombre() . PHP_EOL;
+            echo "Fecha: " . $evento->getFecha() . PHP_EOL;
+            echo "Hora: " . $evento->getHora() . PHP_EOL;
+            echo "Lugar: " . $evento->getLugar() . PHP_EOL;
+            echo "Descripcion: " . $evento->getDescripcion() . PHP_EOL;
+            echo "Organizador: ". $evento->getOrganizador()->getNombre() . PHP_EOL;
             echo str_repeat("-", 50) . PHP_EOL;
         }
     }

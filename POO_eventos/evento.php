@@ -2,12 +2,12 @@
 
 class Evento
 {
-    public string $nombre;
-    public string $fecha;
-    public string $hora;
-    public string $lugar;
-    public string $descripcion;
-    public Empresa $organizador;
+    protected string $nombre;
+    protected string $fecha;
+    protected string $hora;
+    protected string $lugar;
+    protected string $descripcion;
+    protected Empresa $organizador;
     
 
     public function __construct(string $nombre, string $fecha, string $hora, string $lugar, string $descripcion, Empresa $organizador)
@@ -18,6 +18,36 @@ class Evento
         $this->lugar = $lugar;
         $this->descripcion = $descripcion;
         $this->organizador = $organizador;
+    }
+
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    public function getHora()
+    {
+        return $this->hora;
+    }
+
+    public function getLugar()
+    {
+        return $this->lugar;
+    }
+
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    public function getOrganizador()
+    {
+        return $this->organizador;
     }
 
     public function __toString(): string
