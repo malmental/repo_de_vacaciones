@@ -31,7 +31,7 @@ require_once 'evento.php';
 
                 <div class="campo">
                     <label for="hora">Hora:</label>
-                    <input type="text" name="hora" id="hora" required>
+                    <input type="text" name="hora" id="hora" placeholder="hh:mm" required>
                 </div>
 
                 <div class="campo">
@@ -41,7 +41,7 @@ require_once 'evento.php';
 
                 <div class="campo">
                     <label for="descripcion">Descripcion:</label>
-                    <textarea name="descripcion" id="descripcion" rows="3" required></textarea>
+                    <textarea name="descripcion" id="descripcion" rows="3" required></textarea> 
                 </div>
 
                 <div class="campo">
