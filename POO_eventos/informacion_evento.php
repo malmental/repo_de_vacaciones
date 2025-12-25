@@ -1,6 +1,7 @@
 <?php
 require_once 'empresa.php';
 require_once 'evento.php';
+require_once 'validar_datos.php';
 
 // Primero verificamos que los datos fueron recibidos
  if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -8,18 +9,49 @@ require_once 'evento.php';
     exit;
 }
 
+// se crea el validador con los datos recibidos del post
+$validador = new ValidarDatosEvento($_POST);
+
+// validamos
+if (!$validador->validar()) {
+    // si hay errores, se guarda la sesion y se re dirige al formulario de nuevo
+    session_start();
+    $_SESSION['errores'] = $validador->getErrores();
+    $_SESSION['datos_formulario'] = $_POST;
+    header('Location: index.php');
+    exit;
+}
+
+// obtenemos los datos limpios
+$datosLimpios = $validador->getDatosLimpios();
+
+// creamos los objetos
+$empresa = new Empresa ($datosLimpios['empresa_nombre'], $datosLimpios['empresa_direccion']);
+$evento = new Evento (
+        $datosLimpios['nombre'],
+        $datosLimpios['fecha'],
+        $datosLimpios['hora'],
+        $datosLimpios['lugar'],
+        $datosLimpios['descripcion'],
+        $empresa
+);
+/* 
 // Capturamos los datos
+// MODELO ANTIGUO SIN VALIDACION, CAPTURABA LO QUE ENTRABA
+
 $nombre = $_POST['nombre'] ?? '';
 $fecha = $_POST['fecha'] ?? '';
 $hora = $_POST['hora'] ?? '';
 $lugar = $_POST['lugar'] ?? '';
 $descripcion = $_POST['descripcion'] ?? '';
 $empresa_nombre = $_POST['empresa_nombre'] ?? '';
-$empresa_direccion = $_POST['empresa_direccion'] ?? '';
+$empresa_direccion = $_POST['empresa_direccion'] ?? ''; 
 
 // Crear los objetos
 $empresa = new Empresa($empresa_nombre, $empresa_direccion);
 $evento = new Evento($nombre, $fecha, $hora, $lugar, $descripcion, $empresa);
+*/
+
 ?>
 
 <!DOCTYPE html>

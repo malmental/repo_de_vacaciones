@@ -1,6 +1,17 @@
 <?php
 require_once 'empresa.php';
 require_once 'evento.php';
+
+session_start();
+
+// Obtiene los errores del formulario si llegarán a existir
+$errores = $_SESSION['errores'] ?? [];
+$datosFormulario = $_SESSION['datos_formulario.php'] ?? [];
+
+// LIMPIA LAS VARIABLES DE SESION
+unset($_SESSION['errores']);
+unset($_SESSION['datos_formulario']);
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +26,12 @@ require_once 'evento.php';
 <body>
     <div class="container">
         <h1>Gestor de enventos</h1>
+
+        <?php if (!empty($errores)):?>
+            <div class="alerta-errores">
+                <strong>⚠️ Por favor, corrige los siguientes errores:</strong>
+            </div>
+        <?php endif; ?>
 
         <!--FORMULARIO DE CREACION DE EVENTOS-->
         <form method="post" action="informacion_evento.php">
