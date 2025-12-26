@@ -8,11 +8,11 @@ class Mesa
 
     public function __construct(int $numero, int $capacidad, string $ubicacion)
     {
-        if($numero <= 0) {
+        if ($numero <= 0) {
             throw new \InvalidArgumentException("El numero de la mesa debe ser un valor numerico positivo");
         }
 
-        if($capacidad < 2 || $capacidad > 10) {
+        if ($capacidad < 2 || $capacidad > 10) {
             throw new \InvalidArgumentException("La capacidad de la mesa debe entre 2 y 10");
         }
 
@@ -51,9 +51,9 @@ class Mesa
     {
         return [
             "MESA" . PHP_EOL .
-            "Numero: $this->numero" . PHP_EOL .
-            "Capacidad: $this->capacidad" . PHP_EOL .
-            "Ubicacion: $this->ubicacion" . PHP_EOL .
+            "Numero: {$this->numero}" . PHP_EOL .
+            "Capacidad: {$this->capacidad}" . PHP_EOL .
+            "Ubicacion: {$this->ubicacion}" . PHP_EOL .
             "--------------------------" . PHP_EOL
         ];
     }
