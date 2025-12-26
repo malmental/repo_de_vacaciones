@@ -8,16 +8,17 @@ class Mesa
 
     public function __construct(int $numero, int $capacidad, string $ubicacion)
     {
-        if(!is_numeric($numero)) {
-            throw new Exception("El numero de la mesa debe ser un valor numerico");
+        if($numero <= 0) {
+            throw new \InvalidArgumentException("El numero de la mesa debe ser un valor numerico positivo");
         }
 
-        if(!is_numeric($capacidad)) {
-            throw new Exception("La capacidad de la mesa debe ser un valor numerico");
+        if($capacidad < 2 || $capacidad > 10) {
+            throw new \InvalidArgumentException("La capacidad de la mesa debe entre 2 y 10");
         }
 
-        if(!strlen($ubicacion) == 3) {
-            throw new Exception("Escoja la ubicacion indicada: 'int / ext'");
+        $ubicacionesValidas = ['terraza', 'interior', 'ventana'];
+        if (!in_array($ubicacion, $ubicacionesValidas)) {
+            throw new \InvalidArgumentException("La ubicación debe ser 'terraza', 'interior' o 'ventana'");
         }
 
         $this->numero = $numero;
@@ -38,5 +39,22 @@ class Mesa
     public function getUbicacion(): string
     {
         return $this->ubicacion;
+    }
+
+    public function puedeAcomodar(int $personas): bool
+    {
+        // Simple: ¿Las personas que vienen son menos o igual a la capacidad?
+        return $personas <= $this->capacidad;
+    }
+
+    public function __toString()
+    {
+        return [
+            "MESA" . PHP_EOL .
+            "Numero: $this->numero" . PHP_EOL .
+            "Capacidad: $this->capacidad" . PHP_EOL .
+            "Ubicacion: $this->ubicacion" . PHP_EOL .
+            "--------------------------" . PHP_EOL
+        ];
     }
 }
