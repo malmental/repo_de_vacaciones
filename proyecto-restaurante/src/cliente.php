@@ -30,7 +30,7 @@ class cliente
         return $this->nombre;
     }
 
-    public function getTelefono(): int
+    public function getTelefono(): string
     {
         return $this->telefono;
     }

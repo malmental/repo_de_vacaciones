@@ -10,8 +10,7 @@ class reserva
     private string $observaciones;
     private string $estado;
 
-    public function __construct(cliente $cliente, mesa $mesa, string $fecha, string $hora, int $numPersonas, string $observaciones = '', string $estado = 'pendiente') 
-    //  Viene con las observaciones vacias por defecto y el estado como 'pendiente'
+    public function __construct(cliente $cliente, mesa $mesa, string $fecha, string $hora, int $numPersonas, string $observaciones, string $estado) 
     {
         // Para poder validar la fecha se deberá crear un fechaObj
         $fechaObj = \DateTime::createFromFormat('Y-m-d', $fecha);
@@ -45,7 +44,7 @@ class reserva
         $this->fecha = $fecha;
         $this->hora = $hora;
         $this->numPersonas = $numPersonas;
-        $this->observaciones;
+        $this->observaciones = $observaciones;
         $this->estado = $estado;
     }
 

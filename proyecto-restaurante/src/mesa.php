@@ -47,14 +47,13 @@ class Mesa
         return $personas <= $this->capacidad;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return [
+        return 
             "MESA" . PHP_EOL .
             "Numero: {$this->numero}" . PHP_EOL .
             "Capacidad: {$this->capacidad}" . PHP_EOL .
             "Ubicacion: {$this->ubicacion}" . PHP_EOL .
-            "--------------------------" . PHP_EOL
-        ];
+            "--------------------------" . PHP_EOL;
     }
 }
