@@ -35,6 +35,7 @@ $evento = new Evento (
         $datosLimpios['descripcion'],
         $empresa
 );
+
 /* 
 // Capturamos los datos
 // MODELO ANTIGUO SIN VALIDACION, CAPTURABA LO QUE ENTRABA

@@ -10,7 +10,7 @@ class ValidarDatosEvento
         $this->datos = $datos;
     }
 
-    // Retornar true si todos los campos del formulario son válidos
+    // Retornar true si todos los campos del formulario están bien
     public function validar(): bool
     {
         $this->validarNombre();
@@ -18,7 +18,8 @@ class ValidarDatosEvento
         $this->validarHora();
         $this->validarLugar();
         $this->validarDescripcion();
-        $this->validarOrganizador();
+        $this->validarEmpresaNombre();
+        $this->validarEmpresaDireccion();
 
         return empty($this->errores);
     }
@@ -28,12 +29,12 @@ class ValidarDatosEvento
         $nombre = $this->datos['nombre'] ?? '';
 
         if(empty(trim($nombre))) {
-            $this->errores['nombre'] = "el nombre es un campo obligatorio";
+            $this->errores['nombre'] = "El nombre es un campo obligatorio";
             return;
         }
 
         if(strlen($nombre) < 3) {
-            $this->errores['nombre'] = "el nombre debe tener al menos 3 letras";
+            $this->errores['nombre'] = "El nombre debe tener al menos 3 letras";
             return;
         }
     }
@@ -48,12 +49,12 @@ class ValidarDatosEvento
         $hora = $this->datos['hora'] ?? '';
 
         if(empty($hora)) {
-            $this->errores['hora'] = "la hora no puede estar vacia";
+            $this->errores['hora'] = "La hora no puede estar vacia";
             return;
         }
 
         if(!preg_match('/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/', $hora)) {
-            $this->errores['hora'] = "la hora debe tener el formato especificado";
+            $this->errores['hora'] = "La hora debe tener el formato especificado";
             return;
         }
     }
@@ -63,12 +64,12 @@ class ValidarDatosEvento
         $lugar = $this->datos['lugar'] ?? '';
 
         if(empty($lugar)) {
-            $this->errores['lugar'] = "el lugar es obligatorio";
+            $this->errores['lugar'] = "El lugar es obligatorio";
             return;
         }
 
         if(strlen($lugar) < 3) {
-            $this->errores['lugar'] = "el lugar debe contener minimo 3 caracteres";
+            $this->errores['lugar'] = "El lugar debe contener minimo 3 caracteres";
             return;
         }
     }
@@ -78,44 +79,62 @@ class ValidarDatosEvento
         $descripcion = $this->datos['descripcion'] ?? '';
 
         if(empty($descripcion)) {
-            $this->errores['descripcion'] = "la descripcion no puede estar vacia";
+            $this->errores['descripcion'] = "La descripcion no puede estar vacia";
             return;
         }
 
         if(strlen($descripcion) < 3) {
-            $this->errores['descripcion'] = "la descripcion debe tener minimo tres caracteres";
+            $this->errores['descripcion'] = "La descripcion debe tener minimo tres caracteres";
             return;
         }
     }
 
-    private function validarOrganizador(): void 
+    private function validarEmpresaNombre(): void 
     {
-        $organizador = $this->datos['organizador'] ?? '';
+        $empresaNombre = $this->datos['empresa_nombre'] ?? '';
 
-        if(empty($organizador)) {
-            $this->errores['organizador'] = "el organizador no puede estar vacio";
+        if(empty($empresaNombre)) {
+            $this->errores['empresa_nombre'] = "El organizador no puede estar vacio";
             return;
         }
 
-        if(strlen($organizador) < 1) {
-            $this->errores['organizador'] = "el organizador debe tener al menos UN caracter";
+        if(strlen($empresaNombre) < 1) {
+            $this->errores['empresa_nombre)'] = "El organizador debe tener al menos UN caracter";
             return;
         }
     }
 
-    public function getErrores(): bool
+    public function validarEmpresaDireccion(): void
+    {
+        $empresaDireccion = $this->datos['empresa_direccion'] ?? '';
+
+            if(empty(trim($empresaDireccion))) {
+            $this->errores['empresa_direccion'] = "La dirección del organizador no puede estar vacía";
+            return;
+        }
+
+        if(strlen($empresaDireccion) < 5) {
+            $this->errores['empresa_direccion'] = "La dirección debe tener al menos 5 caracteres";
+            return;
+        }
+        
+    }
+    
+    public function getErrores(): array
+    {
+        return $this->errores;
+    }
+
+    public function hayErrores(): bool
     {
         return !empty($this->errores);
     }
 
-     // Retorna el error de un campo específico
     public function getError(string $campo): ?string
     {
         return $this->errores[$campo] ?? null;
     }
 
-
-    // Limpia los datos
     public function getDatosLimpios(): array
     {
         return [
