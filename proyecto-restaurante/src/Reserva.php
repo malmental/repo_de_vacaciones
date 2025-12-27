@@ -35,7 +35,7 @@ class reserva
 
         // Validamos con el metodo puedeAcomodar
         if (!$mesa->puedeAcomodar($numPersonas)) {
-            throw new \InvalidArgumentException("La mesa {$mesa->getNumero()} no puede acomodar {$numPersonas} personas (capacidad: {$mesa->getCapacidad()})");
+            throw new \InvalidArgumentException("La mesa {$mesa->getNumeroDeMesa()} no puede acomodar {$numPersonas} personas (capacidad: {$mesa->getCapacidad()})");
         }
 
         // Si pasa todas estas validaciones asignamos los valores a las propiedade de la clase
@@ -83,7 +83,7 @@ class reserva
         return $this->numPersonas;
     }
 
-    public function getObservacion(): string
+    public function getObservaciones(): string
     {
         return $this->observaciones;
     }

@@ -128,7 +128,7 @@ class ValidadorReserva
 
     private function validarNumPersonas()
     {
-        $numPersonas = $this->datos['numero_personas'] ?? '';
+        $numPersonas = $this->datos['num_personas'] ?? '';
 
         if (empty($numPersonas) ||$numPersonas !== '0') {
             $this->errores['numero_personas'] = "Debe ingresar un valor valido";

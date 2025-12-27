@@ -26,7 +26,7 @@ class Mesa
         $this->ubicacion = $ubicacion;
     }
 
-    public function getNumero(): int
+    public function getNumeroDeMesa(): int
     {
         return $this->numero;
     }
