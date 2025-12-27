@@ -10,7 +10,15 @@
     <div class="container">
     <h1>RESERVA DE MESAS</h1>
 
+    <?php if (!empty($errores)): ?>
+            <div class="alerta-errores">
+                <strong>Corrige los siguientes errores: </strong>
+            </div>
+        <?php endif; ?>
+
     <form method="post" action="informacion_reserva.php">
+
+
         
         <div class="campo">
             <label for="cliente">Nombre de cliente:</label>
@@ -19,7 +27,7 @@
 
         <div class="campo">
             <label for="telefono">Numero de teléfono: </label>
-            <input type="text" name="numero_de_telefono" id="numero_de_telefono" placeholder="YYYY/MM/DD">
+            <input type="text" name="telefono" id="numero_de_telefono" placeholder="YYYY/MM/DD">
         </div>
 
         <div class="campo">
@@ -34,17 +42,17 @@
 
         <div class="campo">
             <label for="hora">Hora de reserva: </label>
-            <input type="text" name="hora" id="hora" placeholder="HH:MM">
+            <input type="text" name="hora_reserva" id="hora" placeholder="HH:MM">
         </div>
 
         <div class="campo">
             <label for="numero_de_personas">Numero de personas: </label>
-            <input type="text" name="num_personas" id="num_personas">
+            <input type="text" name="numero_de_personas" id="num_personas">
         </div>
 
         <div class="campo">
             <label for="numero_de_mesa">Numero de mesa 1-9: </label>
-            <input type="text" name="numero_mesa" id="numero_mesa">
+            <input type="text" name="numero_de_mesa" id="numero_mesa">
         </div>
 
         <div class="campo">

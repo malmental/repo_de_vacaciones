@@ -23,6 +23,11 @@ if (!$validador->validar()) {
 // Obtenemos los datos limpios
 $datosLimpios = $validador->getDatosLimpios();
 
+// Aquí deberías crear:
+// $cliente = new Cliente(...);
+// $mesa = new Mesa(...);
+// $reserva = new Reserva(...);
+
 ?>
 
 <!DOCTYPE html>

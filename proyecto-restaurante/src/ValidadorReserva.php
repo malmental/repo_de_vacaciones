@@ -61,10 +61,12 @@ class ValidadorReserva
 
         if (empty($telefono)) {
             $this->errores['telefono'] = "Debe proporcionar un telefono de contacto";
+            return;
         }
 
         if (!preg_match('/^[0-9]{9}$/', $telefono))
             $this->errores['telefono'] = "El telefono debe tener un formato valido";
+            return;
     }
 
     private function validarEmail()
@@ -87,7 +89,7 @@ class ValidadorReserva
     // ===============
     private function validarFecha()
     {
-        $fecha = $this->datos['fecha'] ?? '';
+        $fecha = $this->datos['fecha_reserva'] ?? '';
 
         if (empty($fecha)) {
             $this->errores['fecha'] = "La fecha es obligatoria";
@@ -113,25 +115,25 @@ class ValidadorReserva
 
     private function validarHora(): void
     {
-        $hora = $this->datos['hora'] ?? '';
+        $hora = $this->datos['hora_reserva'] ?? '';
 
         if (empty($hora)) {
-            $this->errores['hora'] = "La hora no puede estar vacia";
+            $this->errores['hora_reserva'] = "La hora no puede estar vacia";
             return;
         }
 
         if (!preg_match('/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/', $hora)) {
-            $this->errores['hora'] = "La hora debe tener el formato especificado";
+            $this->errores['hora_reserva'] = "La hora debe tener el formato especificado";
             return;
         }
     }
 
     private function validarNumPersonas()
     {
-        $numPersonas = $this->datos['num_personas'] ?? '';
+        $numPersonas = $this->datos['numero_de_personas'] ?? '';
 
         if (empty($numPersonas) ||$numPersonas !== '0') {
-            $this->errores['numero_personas'] = "Debe ingresar un valor valido";
+            $this->errores['numero_de_personas'] = "Debe ingresar un valor valido";
             return;
         }
 
@@ -139,12 +141,12 @@ class ValidadorReserva
         $numPersonas = (int)$numPersonas;
 
         if ($numPersonas <= 0) {
-            $this->errores['num_personas'] = "Debe haber al menos 1 persona";
+            $this->errores['numero_de_personas'] = "Debe haber al menos 1 persona";
             return;
         }
 
         if ($numPersonas > 10) {
-            $this->errores['num_personas'] = "El número máximo de personas es 10";
+            $this->errores['numero_de_personas'] = "El número máximo de personas es 10";
             return;
         }
     }
@@ -154,15 +156,15 @@ class ValidadorReserva
     // ============
     private function validarNumeroMesa(): void
     {
-        $numMesa = $this->datos['numero_mesa'] ?? '';
+        $numMesa = $this->datos['numero_de_mesa'] ?? '';
 
         if (empty($numMesa) && $numMesa !== 0) {
-            $this->errores['numero_mesa'] = "Debe seleccionar una mesa";
+            $this->errores['numero_de_mesa'] = "Debe seleccionar una mesa";
             return;
         }
 
         if ($numMesa < 1 || $numMesa > 10) {
-            $this->errores['numero_mesa'] = "Las mesas pueden ser entre la 1 y las 9";
+            $this->errores['numero_de_mesa'] = "Las mesas pueden ser entre la 1 y las 9";
             return;
         }
     }
@@ -188,7 +190,7 @@ class ValidadorReserva
     // =====================
     private function validarObservaciones()
     {
-        $observaciones = $this->datos['observaciones'];
+        $observaciones = $this->datos['observaciones'] ?? '';
 
         // Las observaciones son opcionales, solo validar si hay algo escrito
         if (!empty($observaciones)) {
@@ -224,7 +226,7 @@ class ValidadorReserva
     {
         return [
             'nombre' => trim($this->datos['nombre'] ?? ''),
-            'telefono' => trim($this->datos['telefono'] ?? ''),
+            'telefono' => trim($this->datos['numero_de_telefono'] ?? ''),
             'email' => trim($this->datos['email'] ?? ''),
             'fecha' => trim($this->datos['fecha'] ?? ''),
             'hora' => trim($this->datos['hora'] ?? ''),
