@@ -97,7 +97,7 @@ class reserva
     {
         return 
             "Cliente: {$this->cliente->getNombre()}" . PHP_EOL .
-            "Mesa: {$this->mesa->getNumero()} ({$this->mesa->getUbicacion()})" . PHP_EOL .
+            "Mesa: {$this->mesa->getNumeroDeMesa()} ({$this->mesa->getUbicacion()})" . PHP_EOL .
             "Fecha: {$this->fecha} a las {$this->hora}" . PHP_EOL .
             "Personas: {$this->numPersonas}" . PHP_EOL .
             "Estado: {$this->estado}" . PHP_EOL .
