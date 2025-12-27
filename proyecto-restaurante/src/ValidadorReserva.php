@@ -198,4 +198,40 @@ class ValidadorReserva
             }
         }
     }
+
+    // =====================================================
+    // METODOS PUBLICOS PARA ACCEDER A LOS MENSAJES DE ERROR
+    // =====================================================
+    public function getErrores(): array
+    {
+        return $this->errores;
+    }
+
+    public function hayErrores(): bool
+    {
+        return !empty($this->errores);
+    }
+
+    public function getError(string $campo): ?string
+    {
+        return $this->errores[$campo] ?? null;
+    }
+
+    // =============================
+    // LIMPIAR Y SANITIZAR LOS DATOS
+    // =============================
+    public function getDatosLimpios(): array
+    {
+        return [
+            'nombre' => trim($this->datos['nombre'] ?? ''),
+            'telefono' => trim($this->datos['telefono'] ?? ''),
+            'email' => trim($this->datos['email'] ?? ''),
+            'fecha' => trim($this->datos['fecha'] ?? ''),
+            'hora' => trim($this->datos['hora'] ?? ''),
+            'num_personas' => (int)($this->datos['num_personas'] ?? 0),
+            'numero_mesa' => (int)($this->datos['numero_mesa'] ?? 0),
+            'ubicacion' => trim($this->datos['ubicacion'] ?? ''),
+            'observaciones' => trim($this->datos['observaciones'] ?? '')
+        ];
+    }
 }
