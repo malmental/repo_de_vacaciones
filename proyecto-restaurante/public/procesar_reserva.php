@@ -2,6 +2,7 @@
 require_once 'Cliente.php';
 require_once 'Mesa.php';
 require_once 'Reserva.php';
+require_once 'ValidadorReserva.php';
 
 // Verificar que los datos se recibieron
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -23,10 +24,31 @@ if (!$validador->validar()) {
 // Obtenemos los datos limpios
 $datosLimpios = $validador->getDatosLimpios();
 
-// Aquí deberías crear:
-// $cliente = new Cliente(...);
-// $mesa = new Mesa(...);
-// $reserva = new Reserva(...);
+// Aquí deberías crear los objetos
+$cliente = new Cliente(
+    $datos['nombre'], 
+    $datos['telefono'], 
+    $datos['email']
+);
+
+// Crear mesa: por ahora usamos una capacidad fija de 6 personas
+$capacidadMesa = 6;  // Puedes cambiarlo según la mesa
+    
+$mesa = new Mesa(
+    $datos['numero_mesa'],
+    $capacidadMesa,
+    $datos['ubicacion']
+);
+
+// Crear reserva
+$reserva = new Reserva(
+    $cliente,
+    $mesa,
+    $datos['fecha'],
+    $datos['hora'],
+    $datos['num_personas'],
+    $datos['observaciones']
+);
 
 ?>
 
