@@ -89,7 +89,7 @@ $reserva = new Reserva(
             </div>
 
             <div class="campo-resultado">Numero de mesa:
-                <p><?= htmlspecialchars($reserva->getNumeroDeMesa()) ?></p>
+                <p><?= htmlspecialchars($mesa->getNumeroDeMesa()) ?></p>
             </div>
 
             <div class="campo-resultado">Ubicacion: 
