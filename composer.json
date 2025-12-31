@@ -1,0 +1,17 @@
+{
+    "name": "orlando/repo-vacaciones",
+    "description": "Repositorio de vacaciones con múltiples proyectos",
+    "autoload": {
+        "psr-4": {
+            "AppPHPUnitTest\\": "AppPHPUnitTest/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AppPHPUnitTest\\Tests\\": "AppPHPUnitTest/tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    }
+}
