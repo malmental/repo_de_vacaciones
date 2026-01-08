@@ -1,0 +1,38 @@
+[
+    {
+    "name": "hilda",
+    "surname": "de asgard",
+    "address": {
+        "street": "valhalla avenue",
+        "city": "asgard",
+        "postal_code": "12345"
+    },
+    "phone_numbers": [
+        {
+            "type": "home",
+            "number": "555-1234"
+        },
+        {
+            "type": "work",
+            "number": "555-5678"
+        }
+    ],
+    "email": null
+    },
+    {
+    "name": "thor",
+    "surname": "odinson",
+    "address": {
+        "street": "mjolnir street",
+        "city": "asgard",
+        "postal_code": "67890"
+    },
+    "phone_numbers": [
+        {
+            "type": "mobile",
+            "number": "555-8765"
+        }
+    ],
+    "email": null
+    }
+]
