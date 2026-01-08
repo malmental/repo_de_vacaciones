@@ -1,0 +1,21 @@
+{
+    "contacts": [
+        {
+            "name": "John Doe",
+            "age": 33,
+            "isActive": false,
+            "address": "Calle del Labrador 6",
+            "phone": [
+                {"personal": "123456789"},
+                {"trabajo": "98763210"}
+            ],
+            "spouse": null
+        },
+        {
+            "name": "Dee Das",
+            "age": 22,
+            "isActive": true,
+            "address": null
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial de JSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Tutorial JSON</h1>
+
+    <script type="text/javascript">
+
+        let contacts = `{
+                "contacts": [
+                    {
+                        "name": "John Doe",
+                        "age": 33,
+                        "isActive": false,
+                        "address": "Calle del Labrador 6",
+                        "phone": [
+                            { "personal": "123456789" },
+                            { "trabajo": "98763210" }
+                        ],
+                        "spouse": null
+                    },
+                    {
+                        "name": "Dee Das",
+                        "age": 22,
+                        "isActive": true,
+                        "address": null
+                    }
+                ]
+            }`
+
+            console.log(JSON.parse(contacts));
+            // console.log(contacts.contacts[0].name);
+    </script>
+</body>
+</html>
