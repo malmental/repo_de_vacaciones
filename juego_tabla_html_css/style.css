@@ -1,0 +1,39 @@
+* {
+    padding: 0px;
+}
+
+body {
+    font-family:monospace;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    margin: 0;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 200px;
+}
+
+.carta {
+    background-color:salmon ;
+    text-align: center;
+    box-shadow: 9px 4px 0;
+    border: 2px solid;
+    padding: 40px 20px;
+    min-width: 100px;
+}
+
+.carta p {
+    color:beige;
+}
+
+.carta:hover {
+    box-shadow: 9px 4px 8px;
+    /*color:beige;*/
+    border-color: red ;
+}
