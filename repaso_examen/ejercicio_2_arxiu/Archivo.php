@@ -23,12 +23,21 @@ class Archivo
         return $this->fecha;
     }
 
+    public function esDeTipo(TipoArchivo $tipo): bool
+    {
+        return $this->tipo === $tipo;
+    }
+
+    public function archivoMasAntiguo(Archivo $otroArchivo): bool
+    {
+        return $this->fecha < $otroArchivo->getFecha();
+    }
+
     public function mostrarDatos(): string
     {
         return "Archivo: " . PHP_EOL .
                 "Nombre: {$this->nombre}" . PHP_EOL .
                 "Tipo: {$this->tipo->value}" . PHP_EOL .
-                "Fecha: {$this->fecha}" . PHP_EOL .
-                "=====================";
+                "Fecha: {$this->fecha}" . PHP_EOL;
     }
 }

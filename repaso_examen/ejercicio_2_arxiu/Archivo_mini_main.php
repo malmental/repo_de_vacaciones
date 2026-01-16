@@ -11,10 +11,27 @@ $archivo5 = new Archivo("viejo_log.txt", TipoArchivo::DOCUMENTO, "2020-01-01");
 
 $archivos = [$archivo1, $archivo2, $archivo3, $archivo4, $archivo5];
 
+// Mostrar todos los archivos
 foreach ($archivos as $archivo) {
     echo $archivo->mostrarDatos() . PHP_EOL;
 }
 
+// Mostrar el archivo mas antiguo recorriendo el Array
+$masAntiguo = $archivos[0];
+foreach ($archivos as $archivo) {
+    if ($archivo->archivoMasAntiguo($masAntiguo)) {
+        $masAntiguo = $archivo;
+    }
+}
+echo "Archivo más antiguo: {$masAntiguo->getNombre()} ({$masAntiguo->getFecha()})" . PHP_EOL . PHP_EOL;
 
+// Verificar tipos
+if ($archivo1->esDeTipo(TipoArchivo::FOTOGRAFIA)) {
+    echo "{$archivo1->getNombre()} es una fotografía" . PHP_EOL;
+}
 
-
+if ($archivo2->esDeTipo(TipoArchivo::DOCUMENTO)) {
+    echo "{$archivo2->getNombre()} es un documento". PHP_EOL;
+} else {
+    echo "{$archivo2->getNombre()} NO es un documento". PHP_EOL;
+}
