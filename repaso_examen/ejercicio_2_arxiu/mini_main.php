@@ -1,6 +1,6 @@
 <?php
 require_once 'Archivo.php';
-require_once 'TipoArchivo.php';
+require_once 'EnumTipoArchivo.php';
 
 // Aregando algunos archivos
 $archivo1 = new Archivo("nueva_foto.jpg", TipoArchivo::FOTOGRAFIA, "2024-05-10");

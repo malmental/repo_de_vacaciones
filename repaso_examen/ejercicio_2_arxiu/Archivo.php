@@ -29,6 +29,6 @@ class Archivo
                 "Nombre: {$this->nombre}" . PHP_EOL .
                 "Tipo: {$this->tipo->value}" . PHP_EOL .
                 "Fecha: {$this->fecha}" . PHP_EOL .
-                "=====================";
+                "======================================";
     }
 }
