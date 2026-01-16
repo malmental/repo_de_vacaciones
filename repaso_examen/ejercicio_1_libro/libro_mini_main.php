@@ -1,13 +1,14 @@
 <?php
 require_once 'Libro.php';
+require_once 'EnumTipoLibro.php';
 
 // ===================
 // Agregando 4 libros.
 // ===================
-$libro1 = new Libro("Antígona", 120, "Tragedia Griega", "Sófocles", -441);
-$libro2 = new Libro("Dune", 704, "Ciencia Ficción", "Frank Herbert", 1965);
-$libro3 = new Libro("1984", 328, "Distopía", "George Orwell", 1949);
-$libro4 = new Libro("El Hobbit", 310, "Fantasía", "J.R.R. Tolkien", 1937);
+$libro1 = new Libro("Antígona", 120, TipoLibro::ACADEMICA, "Sófocles", -441);
+$libro2 = new Libro("Dune", 704, TipoLibro::FICCION, "Frank Herbert", 1965);
+$libro3 = new Libro("1984", 328, TipoLibro::FICCION, "George Orwell", 1949);
+$libro4 = new Libro("El Hobbit para niños", 310, TipoLibro::INFANTIL, "J.R.R. Tolkien bebe", 1937);
 
 $libros = [$libro1, $libro2, $libro3, $libro4];
 

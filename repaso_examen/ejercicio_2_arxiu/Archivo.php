@@ -2,16 +2,11 @@
 
 class Archivo
 {
-    private string $nombre;
-    private TipoArchivo $tipo;
-    private string $fecha; // Formato 'Y-m-d'
-
-    public function __construct(string $nombre, TipoArchivo $tipo, string $fecha)
-    {
-        $this->nombre = $nombre;
-        $this->tipo = $tipo;
-        $this->fecha = $fecha;
-    }
+    public function __construct(
+        private string $nombre, 
+        private TipoArchivo $tipo, 
+        private string $fecha // Formato 'Y-m-d'
+    ) {}
 
     public function getNombre(): string
     {
@@ -33,16 +28,12 @@ class Archivo
         return $this->fecha < $otroArchivo->getFecha();
     }
 
-    public function mostrarDatos(): string
+    public function __toString()
     {
-        return "Archivo: " . PHP_EOL .
-                "Nombre: {$this->nombre}" . PHP_EOL .
-                "Tipo: {$this->tipo->value}" . PHP_EOL .
-<<<<<<< HEAD
-                "Fecha: {$this->fecha}" . PHP_EOL .
-                "======================================";
-=======
-                "Fecha: {$this->fecha}" . PHP_EOL;
->>>>>>> 65536096bcd69d8ea800f86da777cc1cc82340e3
+        return 'Archivo: '  . PHP_EOL .
+                'Nombre: ' . $this->nombre . PHP_EOL .
+                'Tipo: ' . $this->tipo->value . PHP_EOL .
+                'Fecha: ' . $this->fecha . PHP_EOL .
+                '======================================' . PHP_EOL;
     }
 }

@@ -4,15 +4,15 @@ class Libro
 {
     private string $titulo;
     private int $paginas;
-    private string $genero;
+    private TipoLibro $tipo;
     private string $autor;
-    private string $ano_publicacion;
+    private int $ano_publicacion;
 
-    public function __construct(string $titulo, int $paginas, string $genero, string $autor, string $ano_publicacion)
+    public function __construct(string $titulo, int $paginas, TipoLibro $tipo, string $autor, string $ano_publicacion)
     {
         $this->titulo = $titulo;
         $this->paginas = $paginas;
-        $this->genero = $genero;
+        $this->tipo = $tipo;
         $this->autor = $autor;
         $this->ano_publicacion = $ano_publicacion;
     }
@@ -27,9 +27,12 @@ class Libro
         return $this->ano_publicacion;
     }
 
-    public function mostrarDatosLibro(): string
+    public function __toString()
     {
-        return "Libro: {$this->titulo}, Paginas: {$this->paginas}, Genero: {$this->genero}, Autor: {$this->autor}, Año de publicacion: {$this->ano_publicacion}";
+        return 'Libro: ' . $this->titulo . PHP_EOL .
+                'Paginas: ' .  $this->paginas . PHP_EOL .
+                'Tipo/Genero: ' . $this->tipo->value . PHP_EOL .
+                'Autor: ' . $this->autor . PHP_EOL .
+                'Año de publicacion: ' . $this->ano_publicacion . PHP_EOL;
     }
-    
 }

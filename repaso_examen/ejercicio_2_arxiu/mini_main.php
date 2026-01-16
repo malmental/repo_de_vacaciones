@@ -13,11 +13,16 @@ $archivos = [$archivo1, $archivo2, $archivo3, $archivo4, $archivo5];
 
 // Mostrar todos los archivos
 foreach ($archivos as $archivo) {
-    echo $archivo->mostrarDatos() . PHP_EOL;
+    echo $archivo . PHP_EOL;
 }
 
 // Mostrar el archivo mas antiguo recorriendo el Array
-$masAntiguo = $archivos[0];
+if (empty($archivos)) {
+    echo 'El array está vacio' . PHP_EOL;
+} else {
+    $masAntiguo = $archivos[0];
+}
+
 foreach ($archivos as $archivo) {
     if ($archivo->archivoMasAntiguo($masAntiguo)) {
         $masAntiguo = $archivo;
