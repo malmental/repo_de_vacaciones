@@ -26,4 +26,4 @@ function elMasJoven(array $personajes): ?Personaje
 
 echo 'El personaje mas joven es: ' . PHP_EOL;
 $personajeMasJoven = elMasJoven($personajes);
-echo $personajeMasJoven->__toString();
+echo $personajeMasJoven;
